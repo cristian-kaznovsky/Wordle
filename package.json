@@ -1,0 +1,11 @@
+{
+  "devDependencies": {
+    "name": "wordle-project",
+    "main": "src/index.html",
+    "scripts": {
+      "dev": "parcel index.html",
+      "build": "parcel build index.html"
+    },
+    "parcel": "^2.8.3"
+  }
+}
