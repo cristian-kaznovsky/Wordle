@@ -25,11 +25,13 @@ async function init() {
   secretWord = wordJson.word;
   //console.log(secretWord, wordJson.puzzleNumber);
 }
+
 init();
+
 function insertLetter(event) {
   if (done === false) {
     if (isLetter(event.key) && letter_index <= 5 && sticky == false) {
-      letter_pos.innerHTML = event.key.toUpperCase();
+      letter_pos.value = event.key.toUpperCase();
       letter_pos.style.color = "black";
       letter_index += 1;
       updateLetter(letter_index);
@@ -78,12 +80,12 @@ async function wordFeedback(validation, typedWord) {
     changeBorder(false);
   } else if (validation === true) {
     if (typedWord === secretWord) {
-      message.innerHTML = "You Win!";
+      message.textContent = "You Win!";
       message.style.color = "#00a648";
       done = true;
     } else if (lives == row_index) {
       message.style.color = "red";
-      message.innerHTML = `You Lose. The word was "${secretWord}"`;
+      message.textContent = `You Lose. The word was "${secretWord}"`;
       done = true;
     }
     let letterDict = {};
@@ -93,13 +95,11 @@ async function wordFeedback(validation, typedWord) {
 
       if (letterDict[guessLetter]) {
         letterDict[guessLetter]++;
-        //console.log(letterDict);
       } else {
         letterDict[guessLetter] = 1;
-        //console.log(letterDict);
       }
       if (letter === guessLetter) {
-        letterFeedback(pos + 1, "#00a648");
+        letterFeedback(pos + 1, "#538d4e");
         letterDict[letter]--;
       } else {
         letterFeedback(pos + 1, "#888888");
@@ -108,12 +108,16 @@ async function wordFeedback(validation, typedWord) {
     for (let pos = 0; pos < ANSWER_LENGTH; pos++) {
       const letter = typedWord[pos];
       const guessLetter = secretWord[pos];
-      if (secretWord.includes(letter) && letterDict[letter]>0 && letter!==guessLetter) {
-          letterFeedback(pos + 1, "#f7c652");
-          letterDict[letter]--;
+      if (
+        secretWord.includes(letter) &&
+        letterDict[letter] > 0 &&
+        letter !== guessLetter
+      ) {
+        letterFeedback(pos + 1, "#f7c652");
+        letterDict[letter]--;
       }
     }
-    //console.log(letterDict);
+    makeReadOnly();
     goNext();
     my_word = "";
   }
@@ -165,4 +169,13 @@ function letterFeedback(pos, color) {
   updateLetter(pos);
   letter_pos.style.backgroundColor = `${color}`;
   loadSpinner(false);
+}
+function makeReadOnly() {
+  for (let index = 0; index <= ANSWER_LENGTH; index++) {
+    updateLetter(index);
+    if (letter_pos) {
+      letter_pos.readOnly = true;
+    }
+    updateLetter(letter_index);
+  }
 }
