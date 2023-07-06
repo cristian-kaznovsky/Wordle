@@ -9,6 +9,7 @@ let row_pos = document.querySelector(
 let letter_pos = row_pos.querySelector(
   `.puzzle-row :nth-child(${letter_index})`
 );
+
 const loader = document.querySelector(`.loader`);
 const ANSWER_LENGTH = 5;
 let message = document.querySelector(`.message`);
@@ -18,12 +19,23 @@ let done = false;
 let wordApi;
 let wordJson;
 let secretWord;
+const goodDict = {};
 
 async function init() {
   wordApi = await fetch(word_url);
   wordJson = await wordApi.json();
   secretWord = wordJson.word;
   //console.log(secretWord, wordJson.puzzleNumber);
+  for (let row = 1; row <= 3; row++) {
+    let keyContainer = document.querySelector(
+      `.hg-rows .hg-row:nth-child(${row})`
+    );
+    for (let i = 0; i < keyContainer.children.length; i++) {
+      let letterKey = keyContainer.children[i].textContent;
+      if (letterKey.length == 1 && isLetter(letterKey))
+        goodDict[letterKey] = keyContainer.children[i];
+    }
+  }
 }
 
 init();
@@ -76,6 +88,9 @@ function loadSpinner(status) {
 
 async function wordFeedback(validation, typedWord) {
   //console.log(secretWord, wordJson.puzzleNumber);
+  const yellowColor="rgb(247, 198, 82)";
+  const greenColor="rgb(83, 141, 78)";
+  const greyColor="rgb(136, 136, 136)";
   if (validation === false) {
     changeBorder(false);
   } else if (validation === true) {
@@ -92,17 +107,20 @@ async function wordFeedback(validation, typedWord) {
     for (let pos = 0; pos < ANSWER_LENGTH; pos++) {
       const letter = typedWord[pos];
       const guessLetter = secretWord[pos];
-
       if (letterDict[guessLetter]) {
         letterDict[guessLetter]++;
       } else {
         letterDict[guessLetter] = 1;
       }
       if (letter === guessLetter) {
-        letterFeedback(pos + 1, "#538d4e");
+        letterFeedback(pos + 1, greenColor);
+        goodDict[letter.toUpperCase()].style.backgroundColor = greenColor;
         letterDict[letter]--;
       } else {
-        letterFeedback(pos + 1, "#888888");
+        letterFeedback(pos + 1, greyColor);
+        if (goodDict[letter.toUpperCase()].style.backgroundColor != greenColor && goodDict[letter.toUpperCase()].style.backgroundColor != yellowColor){
+          goodDict[letter.toUpperCase()].style.backgroundColor = greyColor;
+        } 
       }
     }
     for (let pos = 0; pos < ANSWER_LENGTH; pos++) {
@@ -113,7 +131,10 @@ async function wordFeedback(validation, typedWord) {
         letterDict[letter] > 0 &&
         letter !== guessLetter
       ) {
-        letterFeedback(pos + 1, "#f7c652");
+        letterFeedback(pos + 1, yellowColor);
+        if (goodDict[letter.toUpperCase()].style.backgroundColor !== greenColor){
+          goodDict[letter.toUpperCase()].style.backgroundColor = yellowColor;
+        }
         letterDict[letter]--;
       }
     }

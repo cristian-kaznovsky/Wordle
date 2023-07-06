@@ -3,205 +3,225 @@
   margin: 0;
   padding: 0;
 }
-.navbar,
-.goal {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
-  font-weight: bolder;
-  font-size: 30px;
+.navbar, .goal {
   text-align: center;
   padding: 20px;
-  padding-left: 20px;
-  padding-right: 20px;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
 }
+
 .navbar {
-  border-bottom: 1px solid grey;
+  border-bottom: 1px solid gray;
   padding: 10px;
 }
+
 .description {
   padding-top: 10px;
 }
+
 .loader {
-  display: flex;
   justify-content: center;
   align-items: center;
   padding: 20px;
+  display: flex;
 }
-.loader::after {
+
+.loader:after {
   content: "";
   width: 20px;
   height: 20px;
-  border: 5px solid black;
-  border-top-color: lightblue;
+  border: 5px solid #000;
+  border-top-color: #add8e6;
   border-radius: 50%;
-  animation: loading 0.75s ease infinite;
+  animation: .75s infinite loading;
 }
+
 .loader-hidden {
   opacity: 0;
   visibility: hidden;
 }
+
 @keyframes loading {
   from {
-    transform: rotate(0turn);
+    transform: rotate(0);
   }
+
   to {
     transform: rotate(1turn);
   }
 }
+
 .puzzle-container {
-  display: grid;
-  row-gap: 5px;
   text-align: center;
-  padding-bottom: 20px;
   outline: none;
+  row-gap: 5px;
+  padding-bottom: 20px;
+  display: grid;
 }
+
 .puzzle-row {
   outline-width: 0;
 }
-.letter {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
-  font-weight: bolder;
-  font-size: 30px;
-  border: 3px solid lightgrey;
+.letter {
   text-align: center;
-  caret-color: transparent;
+  caret-color: #0000;
   height: 45px;
   width: 45px;
+  border: 3px solid #d3d3d3;
   outline: none;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+  font-size: 30px;
+  font-weight: bolder;
 }
-.goal {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 
-  font-weight: bold;
-  font-size: 15px;
+.goal {
   text-align: center;
   padding-bottom: 30px;
-}
-.rules {
-  display: inline-block;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-
-  font-weight: bold;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
   font-size: 15px;
+  font-weight: bold;
 }
+
+.rules {
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
+  font-size: 15px;
+  font-weight: bold;
+  display: inline-block;
+}
+
 .legend {
-  display: grid;
-  gap: 10px;
-  margin: auto auto;
   justify-content: center;
+  gap: 10px;
+  margin: auto;
   padding-left: 20px;
   padding-right: 20px;
+  display: grid;
 }
-.letter.red,
-.letter.green,
-.letter.yellow {
-  display: inline;
+
+.letter.red, .letter.green, .letter.yellow {
+  color: #000;
   margin: 0;
   padding-left: 8px;
   padding-right: 8px;
-  color: black;
+  display: inline;
 }
+
 .letter.red {
   border-color: red;
 }
+
 .letter.green {
   background-color: #538d4e;
 }
+
 .letter.yellow {
   background-color: #f7c652;
 }
+
 .row {
   display: inline-block;
 }
+
 .message {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  padding: 5px 0 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell, Open Sans, Helvetica Neue, sans-serif;
   font-size: 25px;
+  font-weight: bold;
+  display: inline-block;
   top: 50%;
   left: 50%;
-  text-align: center;
-  display: inline-block;
-  padding: 0;
-  padding-top: 5px;
-  margin: 0;
 }
+
 * * hg-theme-default theme .simple-keyboard.hg-theme-ios {
   width: 750px;
   height: 500px;
   margin: auto;
 }
+
 .simple-keyboard.hg-theme-ios.hg-theme-default .hg-row .hg-button {
-  flex-grow: 1;
   cursor: pointer;
   max-width: initial;
+  flex-grow: 1;
 }
+
 .simple-keyboard.hg-theme-ios .hg-row {
   display: flex;
 }
+
 .simple-keyboard.hg-theme-ios .hg-row:not(:last-child) {
   margin-bottom: 5px;
 }
+
 .simple-keyboard.hg-theme-ios .hg-row .hg-button:not(:last-child) {
   margin-right: 5px;
 }
+
 .simple-keyboard.hg-theme-ios .hg-row:nth-child(2) {
   margin-left: 9px;
   margin-right: 9px;
 }
+
 .simple-keyboard.hg-theme-ios.hg-theme-default {
-  background-color: rgba(0, 0, 0, 0.1);
-  padding: 5px;
+  background-color: #0000001a;
   border-radius: 5px;
+  padding: 5px;
 }
+
 .simple-keyboard.hg-theme-ios.hg-theme-default.hg-layout-custom {
-  background-color: black;
+  background-color: #000;
   padding: 5px;
 }
+
 .simple-keyboard.hg-theme-ios.hg-theme-default .hg-button {
-  border-radius: 5px;
   box-sizing: border-box;
-  padding: 0;
-  background: white;
-  border-bottom: 1px solid #b5b5b5;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   box-shadow: none;
-  font-weight: 400;
-  font-size: 20px;
   max-width: 50px;
   min-width: 15px;
   height: 60px;
   min-height: 40px;
+  background: #fff;
+  border-bottom: 1px solid #b5b5b5;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  font-size: 20px;
+  font-weight: 400;
+  display: flex;
 }
-.simple-keyboard.hg-theme-ios.hg-theme-default .hg-button:active,
-.simple-keyboard.hg-theme-ios.hg-theme-default .hg-button:focus {
+
+.simple-keyboard.hg-theme-ios.hg-theme-default .hg-button:active, .simple-keyboard.hg-theme-ios.hg-theme-default .hg-button:focus {
   background: #e4e4e4;
 }
+
 .simple-keyboard.hg-theme-ios.hg-theme-default .hg-button.hg-functionBtn {
   background-color: #adb5bb;
 }
+
 .simple-keyboard.hg-theme-ios.hg-theme-default .hg-button-enter {
   max-width: 30px;
   min-width: 15px;
 }
-.simple-keyboard.hg-theme-ios.hg-theme-default .hg-button-altright,
-.simple-keyboard.hg-theme-ios.hg-theme-default .hg-button-back {
+
+.simple-keyboard.hg-theme-ios.hg-theme-default .hg-button-altright, .simple-keyboard.hg-theme-ios.hg-theme-default .hg-button-back {
   min-width: 80px;
   max-width: 80px;
 }
+
 .simple-keyboard {
   margin-bottom: 50px;
 }
-.centerKeyboard{
-  display: flex;
+
+.centerKeyboard {
   justify-content: center;
   align-items: center;
+  display: flex;
 }
+
+/*# sourceMappingURL=index.6c7e280b.css.map */

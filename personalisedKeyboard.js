@@ -82,7 +82,7 @@ function configureKey(button) {
   let capitalizedKey = key.slice();
   capitalizedKey =
     capitalizedKey.charAt(0).toUpperCase() + capitalizedKey.slice(1);
-  console.log(capitalizedKey);
+  //console.log(capitalizedKey);
   insertLetter(createKeyboardEvent(capitalizedKey));
 }
 
@@ -90,9 +90,13 @@ function checkScreen() {
   const keyboardDiv = document.querySelector(".simple-keyboard");
   let w = window.innerWidth;
   let h = window.innerHeight;
-  console.log("Browser width: " + w + ", height: " + h + ".");
+  //console.log("Browser width: " + w + ", height: " + h + ".");
   if (w > 720) {
-    keyboardDiv.remove();
+    //keyboardDiv.remove();
+    keyboardDiv.style.width=`${w/2}px`;
+    keyboardDiv.style.textAlign="center";
+    keyboardDiv.style.justifyContent="center";
+    keyboardDiv.style.alignItems="center";
   }
 }
 checkScreen();

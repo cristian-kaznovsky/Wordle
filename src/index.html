@@ -21,60 +21,62 @@
       </div>
       <div class="row">
         <div class="letter green">A</div>
-        <p class="rules">The letter is in the correct position.</p>
+        <p class="rules">Letter placed correctly.</p>
       </div>
       <div class="row">
         <div class="letter yellow">A</div>
-        <p class="rules">The letter is correct but in the wrong position.</p>
+        <p class="rules">Letter misplaced.</p>
       </div>
     </div>
     <div class="loader loader-hidden"></div>
     <div tabindex="-1" class="puzzle-container" onkeydown="insertLetter(event)">
       <div class="puzzle-row" autofocus>
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
       </div>
       <div class="puzzle-row">
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
       </div>
       <div class="puzzle-row">
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
       </div>
       <div class="puzzle-row">
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
       </div>
       <div class="puzzle-row">
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
       </div>
       <div class="puzzle-row">
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
-        <input class="letter" type="text" maxlength="1" inputmode="none" />
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
+        <input class="letter" type="text" maxlength="1" inputmode="none" readonly/>
       </div>
       <div class="message"></div>
     </div>
-    <div class="simple-keyboard"></div>
+    <div class="centerKeyboard">
+      <div class="simple-keyboard"></div>
+    </div>
     <script src="./index.js"></script>
     <script type="module" src="./personalisedKeyboard.js"></script>
     <link

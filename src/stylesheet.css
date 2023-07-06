@@ -197,3 +197,11 @@
   min-width: 80px;
   max-width: 80px;
 }
+.simple-keyboard {
+  margin-bottom: 50px;
+}
+.centerKeyboard{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
