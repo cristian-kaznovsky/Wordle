@@ -1,11 +1,14 @@
 {
   "devDependencies": {
-    "name": "wordle-project",
+    "name": "wordle clone repo",
     "main": "src/index.html",
     "scripts": {
       "dev": "parcel index.html",
       "build": "parcel build index.html"
     },
     "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "simple-keyboard": "^3.5.47"
   }
 }
